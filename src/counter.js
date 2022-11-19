@@ -14,13 +14,25 @@ function Counter() {
 
         )
         console.log(count)
-    }   
+    } 
+    
+    function nullify(){
+      setcount(function(countZero){
+        countZero = 0
+        return countZero
+      }
+  )
+    }
 
     return (
       <div>
         <h1>Counter</h1>
-        <p>Counter is at {count}</p>
-        <button onClick = {increase}>Click to add {count} to counter</button>
+        <h2>Counter is at {count}</h2>
+        <button onClick = {increase}>Click to add 1 to counter</button>
+        <p></p>
+        <button onClick = {nullify}> Click hete to restart</button>
+        <p></p>
+        <div id = "body"></div>
       </div>
     );
   }
