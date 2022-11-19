@@ -18,7 +18,7 @@ function Counter() {
     
     function nullify(){
       setcount(function(countZero){
-        countZero = 0
+        countZero = 1
         return countZero
       }
   )
