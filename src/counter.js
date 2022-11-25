@@ -1,42 +1,37 @@
 import { useState } from "react";
-function Counter() {
+function Counter(props) {
+
+    const {delta, max} = props
     const [count,setcount] = useState(1)
-    const [delta,setDelta] = useState(1)
+
+
     /* usestate is create a new list with 2 parametes
     first parameter - variable
     second parameter - function setcount which
     modify the condtion of the state 
-    (1) - the first value of count
+    (1) - the first value of countSSS
     NO SAVED WORDS EXCEPT usestate*/
     function increase(){
         setcount( function(oldcount){
-            return oldcount + delta
+              if (oldcount + delta < max) {
+              return (oldcount + delta);}
+              return 1;
         }
-
         )
-        console.log(count)
     } 
     
     function nullify(){
-      setcount(function(countZero){
-        countZero = 1
-        return countZero
+      setcount(function(countToOne){
+        countToOne = 1
+        return countToOne
       }
     )
   }
-
-  function handleDelta(event){
-    console.log(event);
-    setDelta(Number(event.target.value))
-  }
-
-
-
     return (
       <div>
         <h1>Counter</h1>
-        <input type = "number" value = {delta} onChange = {handleDelta}/>
         <h2>Counter is at {count}</h2>
+        <h3>maximum is {max}</h3>
         <button onClick = {increase}>Click to add {delta} to counter</button>
         <p></p>
         <button onClick = {nullify}> Click here to restart</button>
