@@ -1,10 +1,11 @@
 .App{
   margin-top: 130px;
+  margin-bottom: 150px;
   background-size: 'cover';
   background-repeat: 'no-repeat';
   background-color:midnightblue;
   width: 1100px;
-  display: flex;
+  text-align: center;
   justify-content: center;
   color:floralwhite;
 }
@@ -48,8 +49,13 @@ button {
   }
 
   h2{
-    font-size:medium;
+    font-size:larger;
     color: gold;
+  }
+
+  h3{
+    color: red;
+    font-size: medium;
   }
 
 
