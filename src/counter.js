@@ -31,7 +31,7 @@ function Counter(props) {
       <div>
         <h1>Counter</h1>
         <h2>Counter is at {count}</h2>
-        <h3>maximum is {max}</h3>
+        <h3>Maximum is {max}</h3>
         <button onClick = {increase}>Click to add {delta} to counter</button>
         <p></p>
         <button onClick = {nullify}> Click here to restart</button>
