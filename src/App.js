@@ -7,6 +7,7 @@ function App() {
 
   const [delta,setDelta] = useState(1)
   const max = 200;
+  const [reset, setReset] = useState(false)
 
 
   function handleDelta(event){
@@ -14,12 +15,17 @@ function App() {
     setDelta(Number(event.target.value))
   }
 
+  /*false to true or opossite */
+  function getRest(data){
+    console.log(data)
+    setReset(data)
+  }
 
   return (
     <div className="App">
       <input type = "number" value = {delta} onChange = {handleDelta}/>
-      <Counter  max = {max} delta = {delta}/>
-      <Counter  max = {max} delta = {delta}/>
+      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}/>
+      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}/>
     </div>
   );
 }

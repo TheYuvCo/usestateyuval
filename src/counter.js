@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Counter(props) {
 
-    const {delta, max} = props
+    const {delta, max, getReset, needToReset} = props
     const [count,setcount] = useState(1)
 
+    useEffect(()=>{
+      if(needToReset){
+        setcount(1)
+        getReset(false)
+      }
+    },[needToReset, getReset])
+
+    /* useEffect in list - prop \ character which when it's changes I will tirn on the function inside the
+    useEffect */
 
     /* usestate is create a new list with 2 parametes
     first parameter - variable
@@ -21,12 +30,10 @@ function Counter(props) {
     } 
     
     function nullify(){
-      setcount(function(countToOne){
-        countToOne = 1
-        return countToOne
-      }
-    )
+        getReset(true)
+        setcount(1)
   }
+
     return (
       <div>
         <h1>Counter</h1>
