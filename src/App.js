@@ -7,6 +7,7 @@ function App() {
 
   const [delta,setDelta] = useState(1)
   const max = 200;
+  const [maxValue, setMax] = useState(1); 
   const [reset, setReset] = useState(false)
 
 
@@ -21,11 +22,27 @@ function App() {
     setReset(data)
   }
 
+  function BiggerMax(data){
+    if(data > maxValue){
+      setMax(data)
+    }
+
+    else{
+      if (maxValue > max){
+      setMax(1)
+      }
+    }
+  }
+
   return (
     <div className="App">
+      add 
       <input type = "number" value = {delta} onChange = {handleDelta}/>
-      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}/>
-      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}/>
+      to counters
+      <div>max number: {max} </div>
+      <div>current max number: {maxValue}</div>
+      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}  BiggerMax = {BiggerMax} />
+      <Counter  max = {max} delta = {delta} getReset = {getRest} needToReset = {reset}  BiggerMax = {BiggerMax}/>
     </div>
   );
 }
