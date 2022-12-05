@@ -28,8 +28,8 @@ function App() {
     }
 
     else{
-      if (maxValue > max){
-      setMax(1)
+      if (maxValue < max){
+      setMax(maxValue)
       }
     }
   }
